@@ -1,0 +1,21 @@
+<!-- Default home page -->
+<html>
+<head>
+    <title>Cuttle Game View</title>
+</head>
+<body ng-app='gameView'>
+    <div ng-controller='gameViewController as gameView' ng-cloak class='container-fluid' id='container'>
+        <!-- Top Wrap -->
+        <div></div>
+        <!-- Middle Wrap -->
+        <div id='midWrap' class='row'>
+            <div class="col-xs-2 col-md-2" id='deckScrap'></div>
+            <div class="col-xs-4 col-md-4 field" id='points'></div>
+            <div class="col-xs-4 col-md-4 field" id='runes'></div>
+            <div class="col-xs-2 col-md-2" id='gameLog'></div>
+        </div>
+        <!-- Bottom Wrap -->
+        <div></div>
+    </div>
+</body>
+</html>
