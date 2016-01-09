@@ -10,8 +10,12 @@
         <!-- Middle Wrap -->
         <div id='midWrap' class='row'>
             <div class="col-xs-2 col-md-2" id='deckScrap'></div>
-            <div class="col-xs-4 col-md-4 field" id='points'></div>
-            <div class="col-xs-4 col-md-4 field" id='runes'></div>
+            <div class="col-xs-4 col-md-4 field row" id='points'>
+                Points
+                <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img>
+                <div id='yourPoints'></div>
+            </div>
+            <div class="col-xs-4 col-md-4 field row" id='runes'>Runes</div>
             <div class="col-xs-2 col-md-2" id='gameLog'></div>
         </div>
         <!-- Bottom Wrap -->

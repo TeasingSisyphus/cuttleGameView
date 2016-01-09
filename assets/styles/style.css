@@ -1,6 +1,47 @@
+html, body {
+	height: 99%;
+	border-style: dashed;
+}
+
 #container{
 	background-image: url("../images/woodenTableImage.jpg");
 	background-size: 100% auto;
-	width: 500px;
-	height: 500px;
+	width: 100%;
+	height: 100%;
+}
+
+#points{
+	background-image: url("../images/pokerTableFelt.jpg");
+	display: inline-block;
+	opacity: 0.8;
+	border-radius: 7px;
+	border-color: #5E5908;
+	border-style: dashed;
+	/*Changes where the text appears*/
+	font-size: 35px;
+	text-align: center;
+	padding-top: 180px;
+	/*Changes position relative to where the image WOULD be*/
+	position: relative;
+	/*Changes the position of the box*/
+	left: 300px;
+	top: 175px;
+	height: 220px;
+	width: 600px;
+}
+#runes{
+	background-image: url("../images/pokerTableFelt.jpg");
+	display: inline-block;
+	opacity: 0.8;
+	border-radius: 7px;
+	border-color: #5E5908;
+	border-style: dashed;
+	font-size: 35px;
+	text-align: center;
+	padding-top: 180px;
+	position: relative;
+	left: 300px;
+	top: 175px;
+	height: 220px;
+	width: 600px;
 }
