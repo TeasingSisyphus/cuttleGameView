@@ -9,14 +9,22 @@
         <div></div>
         <!-- Middle Wrap -->
         <div id='midWrap' class='row'>
-            <div class="col-xs-2 col-md-2" id='deckScrap'></div>
+            <div class="col-xs-2 col-md-2" id='deckScrap'>
+                <img src="images/deck.jpg" id='deck'></img>
+                <img src="images/scrap.jpg" id='scrap'></img>
+            </div>
             <div class="col-xs-4 col-md-4 field row" id='points'>
                 Points
                 <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img>
                 <div id='yourPoints'></div>
             </div>
-            <div class="col-xs-4 col-md-4 field row" id='runes'>Runes</div>
-            <div class="col-xs-2 col-md-2" id='gameLog'></div>
+            <div class="col-xs-4 col-md-4 field row" id='runes'>Runes
+                <img src='../images/bicycleBackBlue.jpg'></img>
+
+            </div>
+            <div class="col-xs-2 col-md-2" id='gameLog'>
+                <li ng-repeat='post in gameView.game.log' class='post'>{{post}}</li>
+            </div>
         </div>
         <!-- Bottom Wrap -->
         <div></div>

@@ -49,5 +49,8 @@
 		this.game = newGame;
 		this.pNum = 0;
 
+		this.game.log.push("Player made a move", "Opponent appreciated its gesture", "Player advanced, sexually", "frowns and chocolate"
+			, "repetition", "self-loathing", "failure", "underwhelming existential dissastisfaction");
+
 	});
 })();
