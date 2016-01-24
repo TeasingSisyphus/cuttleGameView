@@ -13,13 +13,13 @@
                 <img src="images/deck.jpg" id='deck'></img>
                 <img src="images/scrap.jpg" id='scrap'></img>
             </div>
-            <div class="col-xs-4 col-md-4 field row" id='points'>
+            <div class="col-xs-4 col-md-4 field row" id='points' >
                 Points
-                <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img>
-                <div id='yourPoints'></div>
+                <!-- <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img> -->
+                <div id='yourPoints' ondragover='dragOverPoints(event)' ondrop='dropPoints(event)'></div>
             </div>
             <div class="col-xs-4 col-md-4 field row" id='runes'>Runes
-                <img src='../images/bicycleBackBlue.jpg'></img>
+                <!-- <img src='../images/bicycleBackBlue.jpg'></img> -->
 
             </div>
             <div class="col-xs-2 col-md-2" id='gameLog'>
@@ -27,7 +27,11 @@
             </div>
         </div>
         <!-- Bottom Wrap -->
-        <div></div>
+        <div id='bottomWrap' class='row'>
+            <div id='yourHand'>
+                <img ng-repeat='card in gameView.game.players[gameView.pNum].hand track by $index' ng-src='{{card.image}}' class="cardInHand" index='{{$index}}' draggable='true' ondragstart='dragCard(event)'></img>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -24,7 +24,7 @@ html, body {
 	/*Changes position relative to where the image WOULD be*/
 	position: fixed;
 	/*Changes the position of the box*/
-	left: 220px;
+	left: 320px;
 	top: 175px;
 	height: 200px;
 	width: 600px;
@@ -41,7 +41,7 @@ html, body {
 	text-align: center;
 	padding-top: 180px;
 	position: fixed;
-	left: 840px;
+	left: 940px;
 	top: 175px;
 	height: 200px;
 	width: 600px;
@@ -63,8 +63,10 @@ html, body {
 	position: fixed;
 	overflow: auto;
 	width: 200px;
-	left: 1500px;
-	top: 200px;
+	left: 1600px;
+	top: 180px;
+	display: inline-block;
+	height: 380px;
 	border-radius: 10px;
 	background-color: #F0C4B3;
 }
@@ -72,4 +74,17 @@ html, body {
 .post {
 	position: relative;
 	left: 5px;
+}
+
+#bottomWrap {
+	position: relative;
+	top: 700px;
+	left: 140px;
+}
+
+.cardInHand{
+	position: relative;
+	margin-left: 20px;
+	height: 250px;
+	bottom: 70px;
 }

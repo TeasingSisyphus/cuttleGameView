@@ -1,5 +1,14 @@
 (function() {
-	var app = angular.module('gameView', []);
+	var cardId = null;
+	var dragCard = function(ev) {
+		cardId = ev.target.prop("index");
+	};
+	var dragOverPoints = function(ev) {
+		ev.preventDefault();
+	};
+	var dropPoints = function(ev) {
+		console.log("You dropped the " + cardId + ".")
+	};	var app = angular.module('gameView', []);
 	var tempGame = function () { //Used to fully populate a game for front-end updates
 		this.id = null;
 		this.name = '';
@@ -32,14 +41,13 @@
 		this.image = '../images/bicycleBackBlue.jpg';
 		this.attachments = [];
 	}
-
 	var newGame = new tempGame();
 	var you = new tempPlayer();
 	var opponent = new tempPlayer();
 	var tempCard = new Card(3, 1);
 	var tempJackCard = new Card(0, 1);
 	tempJackCard.attachments = [tempCard];
-	you.hand = [tempCard, tempCard, tempCard];
+	you.hand = [tempCard, tempCard, tempCard, tempCard, tempCard, tempCard, tempCard, tempCard];
 	opponent.hand = [tempCard, tempCard, tempCard];
 	you.points = [tempCard, tempJackCard];
 	opponent.points = [tempJackCard];
@@ -51,6 +59,5 @@
 
 		this.game.log.push("Player made a move", "Opponent appreciated its gesture", "Player advanced, sexually", "frowns and chocolate"
 			, "repetition", "self-loathing", "failure", "underwhelming existential dissastisfaction");
-
 	});
 })();
