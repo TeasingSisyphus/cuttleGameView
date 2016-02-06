@@ -9,8 +9,10 @@
 			el.addEventListener(
 				'dragstart', 
 				function(e){
+					console.log("draggin'");
 					e.dataTransfer.effectAllowed = 'move';
 					e.dataTransfer.setData('Text', this.id);
+					console.log(e.dataTransfer.getData('Text'));
 					this.classList.add('drag');
 					return false;
 				},
@@ -40,8 +42,9 @@
 				el.addEventListener(
 					'dragover',
 					function(e) {
-						e.dataTransfer = 'move';
-						if (e.preventDefault) e.preventDefault
+						console.log("dragged over");
+						e.dataTransfer.dropEffect = 'move';
+						e.preventDefault();
 							this.classList.add('over');
 							return false;
 
@@ -51,6 +54,7 @@
 				el.addEventListener(
 					'dragenter',
 					function(e) {
+						console.log("dragEnter");
 						this.classList.add('over');
 						return false;
 					},
@@ -69,6 +73,12 @@
 				el.addEventListener(
 					'drop',
 					function(e) {
+			          if (e.stopPropagation) e.stopPropagation();
+
+			          	this.classList.remove('over');		
+			          	console.log("dragDataText:");
+			          	console.log(e.dataTransfer.getData('Text'));				
+			          	var item = document.getElementById(e.dataTransfer.getData('Text'));
 						this.appendChild(item);
 						scope.$apply(function(scope) {
 							var fn = scope.drop();
@@ -140,8 +150,8 @@
 	app.controller('gameViewController', function($scope, $rootScope) {
 		this.game = newGame;
 		this.pNum = 0;
-			$scope.handleDrop = function(item, bin) {
-				alert('Item '+ item + ' has been dropped ' + bin);
+		$scope.handleDrop = function(item, bin) {
+			alert('Item '+ item + ' has been dropped ' + bin);
 		};
 		this.game.log.push("Player made a move", "Opponent appreciated its gesture", "Player advanced, sexually", "frowns and chocolate"
 			, "repetition", "self-loathing", "failure", "underwhelming existential dissastisfaction");

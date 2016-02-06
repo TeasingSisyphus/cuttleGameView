@@ -13,7 +13,7 @@
                 <img src="images/deck.jpg" id='deck'></img>
                 <img src="images/scrap.jpg" id='scrap'></img>
             </div>
-            <div class="col-xs-4 col-md-4 field row" id='points' >
+            <div class="col-xs-4 col-md-4 field row" id='points' drop="handleDrop" bin="points" >
                 Points
                 <!-- <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img> -->
                 <div id='yourPoints' droppable drop="handleDrop" bin="points"></div>
@@ -29,7 +29,7 @@
         <!-- Bottom Wrap -->
         <div id='bottomWrap' class='row'>
             <div id='yourHand'>
-                <img ng-repeat='card in gameView.game.players[gameView.pNum].hand track by $index' ng-src='{{card.image}}' class="cardInHand" index='{{$index}}' draggable item="item">{{item}}</img>
+                <img ng-repeat='card in gameView.game.players[gameView.pNum].hand track by $index' ng-src='{{card.image}}' class="cardInHand" index='{{$index}}' draggable item="item" id="handCard{{$index}}">{{item}}</img>
             </div>
         </div>
     </div>

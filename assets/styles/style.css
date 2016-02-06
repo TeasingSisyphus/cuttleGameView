@@ -47,6 +47,24 @@ html, body {
 	width: 600px;
 }
 
+#yourPoints {
+	display: inline-block;
+	opacity: 0.8;
+	border-radius: 7px;
+	border-color: #5E5908;
+	border-style: dashed;
+	/*Changes where the text appears*/
+	font-size: 35px;
+	text-align: center;
+	/*Changes position relative to where the image WOULD be*/
+	position: relative;
+
+	max-height: 65%;
+	min-height: 65%;
+	width: 100%;
+	top: 15px;
+
+}
 #deck {
 	position: fixed;
 	top: 180px;
