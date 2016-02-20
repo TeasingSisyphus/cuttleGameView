@@ -42,7 +42,6 @@
 				el.addEventListener(
 					'dragover',
 					function(e) {
-						console.log("dragged over");
 						e.dataTransfer.dropEffect = 'move';
 						e.preventDefault();
 							this.classList.add('over');
@@ -54,7 +53,6 @@
 				el.addEventListener(
 					'dragenter',
 					function(e) {
-						console.log("dragEnter");
 						this.classList.add('over');
 						return false;
 					},
@@ -77,14 +75,21 @@
 
 			          	this.classList.remove('over');		
 			          	console.log("dragDataText:");
-			          	console.log(e.dataTransfer.getData('Text'));				
+			          	console.log(e.dataTransfer.getData('Text'));
+			          	var binId = this.id;				
 			          	var item = document.getElementById(e.dataTransfer.getData('Text'));
+			          	item.classList.add('played');
 						this.appendChild(item);
 						scope.$apply(function(scope) {
-							var fn = scope.drop();
-							if ('undefined' !== typeof fn) {
-								fn(item.id, binId);
-							}
+							/////////////////////////////////////////
+							//This might be needed to help with    //
+							//other browsers, keep that in mind    //
+							//                                     //
+							var fn = scope.drop();              //
+							if ('undefined' !== typeof fn) {    //
+								fn(item.id, binId);                //
+							}                                   //
+							/////////////////////////////////////////
 						});
 						return false;
 					},	//function(e)
@@ -96,13 +101,6 @@
 
 	var cardId = null;
 
-
-	var dragOverPoints = function(ev) {
-		ev.preventDefault();
-	};
-	var dropPoints = function(ev) {
-		console.log("You dropped the " + cardId + ".")
-	};	
 	var tempGame = function () { //Used to fully populate a game for front-end updates
 		this.id = null;
 		this.name = '';
