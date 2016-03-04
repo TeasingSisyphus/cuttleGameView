@@ -78,17 +78,18 @@
 			          	console.log(e.dataTransfer.getData('Text'));
 			          	var binId = this.id;				
 			          	var item = document.getElementById(e.dataTransfer.getData('Text'));
-			          	item.classList.add('played');
-						this.appendChild(item);
+			          	// item.classList.add('played');
+						// this.appendChild(item);
 						scope.$apply(function(scope) {
 							/////////////////////////////////////////
-							//This might be needed to help with    //
-							//other browsers, keep that in mind    //
-							//                                     //
-							var fn = scope.drop();              //
-							if ('undefined' !== typeof fn) {    //
-								fn(item.id, binId);                //
-							}                                   //
+							//This might be needed to help with     //
+							//other browsers, keep that in mind     //
+							//                                      //
+							var fn = scope.drop();              	//
+							if ('undefined' !== typeof fn) {    	//
+								var index = item.getAttribute('index');
+								fn(index, binId);                	//
+							}                                   	//
 							/////////////////////////////////////////
 						});
 						return false;
@@ -148,8 +149,11 @@
 	app.controller('gameViewController', function($scope, $rootScope) {
 		this.game = newGame;
 		this.pNum = 0;
-		$scope.handleDrop = function(item, bin) {
-			alert('Item '+ item + ' has been dropped ' + bin);
+		$scope.handleDrop = function(index, bin) {
+			// alert('Item '+ item + ' has been dropped ' + bin);
+			console.log(index);
+			$scope.gameView.game.players[$scope.gameView.pNum].points.push($scope.gameView.game.players[$scope.gameView.pNum].hand.splice(index, 1)[0]);
+
 		};
 		this.game.log.push("Player made a move", "Opponent appreciated its gesture", "Player advanced, sexually", "frowns and chocolate"
 			, "repetition", "self-loathing", "failure", "underwhelming existential dissastisfaction");
