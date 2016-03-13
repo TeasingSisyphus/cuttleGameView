@@ -6,7 +6,12 @@
 <body ng-app='gameView'>
     <div ng-controller='gameViewController as gameView' ng-cloak class='container-fluid' id='container'>
         <!-- Top Wrap -->
-        <div></div>
+        <div id ='topWrap' class='row'>
+            <div id="oppHand">
+                <img ng-repeat='card in gameView.game.players[1].hand track by $index' ng-src='{{card.image}}' class="cardInOppHand" index='{{$index}}' draggable item="item" id="oppHandCard{{$index}}">
+                {{item}}</img>
+            </div>
+        </div>
         <!-- Middle Wrap -->
         <div id='midWrap' class='row'>
             <div class="col-xs-2 col-md-2" id='deckScrap'>
@@ -16,14 +21,15 @@
             <div class="col-xs-4 col-md-4 field row" id='points'>
                 Points
                 <!-- <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img> -->
-                <div id='yourPoints' droppable drop="handleDrop" bin="points">
+                <div id='yourPoints' droppable drop="handleDropPoints" bin="points">
                     <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}' class="played" index='{{$index}}' id="pointCard{{$index}}"></img>
                 </div>
             </div>
             <div class="col-xs-4 col-md-4 field row" id='runes'>
                 Runes
                 <!-- <img src='../images/bicycleBackBlue.jpg'></img> -->
-                <div id='yourRunes' droppable drop="handleDrop" bin="runes"></div>
+                <div id='yourRunes' droppable drop="handleDropRunes" bin="runes">
+                    <img ng-repeat='card in gameView.game.players[gameView.pNum].runes track by $index' ng-src='{{card.image}}' class="played" index='{{$index}}' id="runeCard{{$index}}"></img></div>
 
             </div>
             <div class="col-xs-2 col-md-2" id='gameLog'>

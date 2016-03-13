@@ -115,16 +115,41 @@ html, body {
 
 #bottomWrap {
 	position: relative;
-	top: 700px;
-	left: 140px;
+	top: 70%;
+}
+
+#topWrap {
+	position: relative;
+	top: 3%;
+}
+
+#oppHand {
+	position: absolute;
+	left: 35%;
+}
+
+#yourHand {
+	position: absolute;
+	left: 10%;
+	width: 100%;
 }
 
 .cardInHand{
 	position: relative;
-	margin-left: 20px;
-	height: 300px;
-	bottom: 100px;
+	display: inline-block;
+	margin-left: 2%;
+	height: 50%;
+	bottom: 15%;
 }
+
+.cardInOppHand {
+	position: relative;
+	display: inline-block;
+	margin-left: 2%;
+	height: 50%;
+	width: 15%;
+}
+
 .over{
 	position: relative;
 	background-color: green;

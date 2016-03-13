@@ -81,16 +81,11 @@
 			          	// item.classList.add('played');
 						// this.appendChild(item);
 						scope.$apply(function(scope) {
-							/////////////////////////////////////////
-							//This might be needed to help with     //
-							//other browsers, keep that in mind     //
-							//                                      //
-							var fn = scope.drop();              	//
-							if ('undefined' !== typeof fn) {    	//
+							var fn = scope.drop();  // Drop is declared in the html, we believe            	
+							if ('undefined' !== typeof fn) {    	
 								var index = item.getAttribute('index');
-								fn(index, binId);                	//
-							}                                   	//
-							/////////////////////////////////////////
+								fn(index, binId);                	
+							}                                   	
 						});
 						return false;
 					},	//function(e)
@@ -141,7 +136,7 @@
 	var tempJackCard = new Card(0, 1);
 	tempJackCard.attachments = [tempCard];
 	you.hand = [tempCard, tempCard, tempCard, tempCard, tempCard, tempCard, tempCard, tempCard];
-	opponent.hand = [tempCard, tempCard, tempCard];
+	opponent.hand = [tempCard, tempCard, tempCard, tempCard];
 	you.points = [tempCard, tempJackCard];
 	opponent.points = [tempJackCard];
 	newGame.players = [you, opponent];
@@ -149,12 +144,16 @@
 	app.controller('gameViewController', function($scope, $rootScope) {
 		this.game = newGame;
 		this.pNum = 0;
-		$scope.handleDrop = function(index, bin) {
+		$scope.handleDropPoints = function(index, bin) {
 			// alert('Item '+ item + ' has been dropped ' + bin);
 			console.log(index);
 			$scope.gameView.game.players[$scope.gameView.pNum].points.push($scope.gameView.game.players[$scope.gameView.pNum].hand.splice(index, 1)[0]);
 
 		};
+		$scope.handleDropRunes = function(index, bin) {
+			console.log("Dropped in the right place");
+			$scope.gameView.game.players[$scope.gameView.pNum].runes.push($scope.gameView.game.players[$scope.gameView.pNum].hand.splice(index, 1)[0]);
+		}
 		this.game.log.push("Player made a move", "Opponent appreciated its gesture", "Player advanced, sexually", "frowns and chocolate"
 			, "repetition", "self-loathing", "failure", "underwhelming existential dissastisfaction");
 	});
