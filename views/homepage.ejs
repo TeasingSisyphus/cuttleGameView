@@ -19,14 +19,20 @@
                 <img src="images/scrap.jpg" id='scrap'></img>
             </div>
             <div class="col-xs-4 col-md-4 field row" id='points'>
-                Points
+                <div id="oppPoints">
+                     <img ng-repeat='card in gameView.game.players[(gameView.pNum + 1) % 2].points track by $index' ng-src='{{card.image}}' class="oppPlayed" index='{{$index}}' id="runeCard{{$index}}"></img>
+                </div>
+                <p>Points</p>
                 <!-- <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}'></img> -->
                 <div id='yourPoints' droppable drop="handleDropPoints" bin="points">
                     <img ng-repeat='card in gameView.game.players[gameView.pNum].points track by $index' ng-src='{{card.image}}' class="played" index='{{$index}}' id="pointCard{{$index}}"></img>
                 </div>
             </div>
             <div class="col-xs-4 col-md-4 field row" id='runes'>
-                Runes
+                <div id="oppRunes">
+                    <img ng-repeat='card in gameView.game.players[(gameView.pNum + 1) % 2].runes track by $index' ng-src='{{card.image}}' class="oppPlayed" index='{{$index}}' id="runeCard{{$index}}"></img>
+                </div>
+                <p>Runes</p>
                 <!-- <img src='../images/bicycleBackBlue.jpg'></img> -->
                 <div id='yourRunes' droppable drop="handleDropRunes" bin="runes">
                     <img ng-repeat='card in gameView.game.players[gameView.pNum].runes track by $index' ng-src='{{card.image}}' class="played" index='{{$index}}' id="runeCard{{$index}}"></img></div>
@@ -40,6 +46,16 @@
         <div id='bottomWrap' class='row'>
             <div id='yourHand'>
                 <img ng-repeat='card in gameView.game.players[gameView.pNum].hand track by $index' ng-src='{{card.image}}' class="cardInHand" index='{{$index}}' draggable item="item" id="handCard{{$index}}">{{item}}</img>
+            </div>
+            <div id="yourCounter">
+                <div>
+                    <div id="yourKingSlot1" class="kingSlot"></div>
+                    <div id="yourKingSlot2" class="kingSlot"></div>
+                </div>
+                <div>
+                    <div id="yourKingSlot3" class="kingSlot"></div>
+                    <div id="yourKingSlot4" class="kingSlot"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -139,6 +139,7 @@
 	opponent.hand = [tempCard, tempCard, tempCard, tempCard];
 	you.points = [tempCard, tempJackCard];
 	opponent.points = [tempJackCard];
+	opponent.runes = [tempCard, tempJackCard];
 	newGame.players = [you, opponent];
 
 	app.controller('gameViewController', function($scope, $rootScope) {

@@ -26,7 +26,7 @@ html, body {
 	/*Changes the position of the box*/
 	left: 320px;
 	top: 175px;
-	height: 200px;
+	height: 275px;
 	width: 600px;
 }
 
@@ -43,45 +43,86 @@ html, body {
 	position: fixed;
 	left: 940px;
 	top: 175px;
-	height: 200px;
+	height: 275px;
 	width: 600px;
+}
+
+#runes p {
+	display: inline-block;
+	position: absolute;
+	right: 42%;
+	bottom: 37%;
+}
+
+#points p {
+	display: inline-block;
+	position: absolute;
+	right: 42%;
+	bottom: 37%;
+}
+#oppRunes {
+	display: inline-block;
+	opacity: .8;
+	border-radius: 7px;
+	border: dashed black;
+	position: absolute;
+	max-height: 40%;
+	min-height: 40%; 
+	width: 100%;
+	bottom: 55%;
+	right: 0%;
 }
 
 #yourRunes {
 	display: inline-block;
 	opacity: 0.8;
 	border-radius: 7px;
-	border-color: #5E5908;
+	border-color: black;
 	border-style: dashed;
 	/*Changes where the text appears*/
 	font-size: 35px;
 	text-align: center;
 	/*Changes position relative to where the image WOULD be*/
-	position: relative;
+	position: absolute;
 
-	max-height: 65%;
-	min-height: 65%;
+	max-height: 40%;
+	min-height: 40%;
 	width: 100%;
-	top: 15px;
+	top: 55%;
+	right: 0%;
 
+}
+
+#oppPoints {
+	display: inline-block;
+	opacity: .8;
+	border-radius: 7px;
+	border: dashed black;
+	position: absolute;
+	max-height: 40%;
+	min-height: 40%; 
+	width: 100%;
+	bottom: 55%;
+	right: 0%;
 }
 
 #yourPoints {
 	display: inline-block;
 	opacity: 0.8;
 	border-radius: 7px;
-	border-color: #5E5908;
+	border-color: black;
 	border-style: dashed;
 	/*Changes where the text appears*/
 	font-size: 35px;
 	text-align: center;
 	/*Changes position relative to where the image WOULD be*/
-	position: relative;
+	position: absolute;
 
-	max-height: 65%;
-	min-height: 65%;
+	max-height: 40%;
+	min-height: 40%;
 	width: 100%;
-	top: 15px;
+	top: 55%;
+	right: 0%;
 
 }
 #deck {
@@ -123,6 +164,11 @@ html, body {
 	top: 3%;
 }
 
+/*#midWrap {
+	position: relative;
+	top: 100px;
+}*/
+
 #oppHand {
 	position: absolute;
 	left: 35%;
@@ -157,6 +203,60 @@ html, body {
 }
 .played{
 	position: relative;
+	top: 50px;
+	height: 125px;
+	margin-left: 3%;
+}
+
+.oppPlayed {
+	position: relative;
 	top: 10px;
 	height: 125px;
+	margin-left: 3%;
+}
+
+#yourCounter {
+	display: block;
+	position: absolute;
+	min-height: 200px;
+	max-height: 200px;
+	width: 200px;
+	border: 3px solid black;
+	left: 1800px;
+}
+
+#yourKingSlot1 {
+	display: inline-block;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	border: 2px solid black;
+}
+
+#yourKingSlot2 {
+	display: inline-block;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	border: 2px solid black;
+	left: 50%;
+}
+
+#yourKingSlot3 {
+	display: inline-block;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	border: 2px solid black;
+	top: 50%;
+}
+
+#yourKingSlot4 {
+	display: inline-block;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	border: 2px solid black;
+	top: 50%;
+	left: 50%;
 }
