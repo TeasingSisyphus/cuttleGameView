@@ -133,7 +133,7 @@
 	var you = new tempPlayer();
 	var opponent = new tempPlayer();
 	var tempCard = new Card(3, 1);
-	var tempJackCard = new Card(0, 1);
+	var tempJackCard = new Card(0, 10);
 	tempJackCard.attachments = [tempCard];
 	you.hand = [tempCard, tempCard, tempCard, tempCard, tempCard, tempCard, tempCard, tempCard];
 	opponent.hand = [tempCard, tempCard, tempCard, tempCard];
@@ -145,10 +145,23 @@
 	app.controller('gameViewController', function($scope, $rootScope) {
 		this.game = newGame;
 		this.pNum = 0;
+		this.yourPointTotal = 11;
+		this.opponentPointTotal = 10;
+
+		this.countPoints = function() {
+			console.log("Inside count points")
+			var points = 0;
+			$scope.gameView.game.players[$scope.gameView.pNum].points.forEach(function (point) {
+				points += point.rank;
+			});
+			$scope.gameView.yourPointTotal = points;
+		}
+
 		$scope.handleDropPoints = function(index, bin) {
 			// alert('Item '+ item + ' has been dropped ' + bin);
 			console.log(index);
 			$scope.gameView.game.players[$scope.gameView.pNum].points.push($scope.gameView.game.players[$scope.gameView.pNum].hand.splice(index, 1)[0]);
+			$scope.gameView.countPoints();
 
 		};
 		$scope.handleDropRunes = function(index, bin) {
