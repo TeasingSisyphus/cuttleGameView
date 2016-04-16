@@ -60,6 +60,7 @@ html, body {
 	right: 42%;
 	bottom: 37%;
 }
+
 #oppRunes {
 	display: inline-block;
 	opacity: .8;
@@ -218,11 +219,11 @@ html, body {
 #yourCounter {
 	display: block;
 	position: absolute;
-	min-height: 200px;
-	max-height: 200px;
-	width: 200px;
+	min-height: 225px;
+	max-height: 225px;
+	width: 225px;
 	border: 3px solid black;
-	left: 1650px;
+	left: 1625px;
 }
 
 #yourKingSlot1 {
@@ -279,4 +280,60 @@ html, body {
 	width: 100%;
 	top: 25%;
 	font-size: 2em;
+}
+
+#yourPointTotal div p {
+	font-size: 1em;
+}
+
+#winCon {
+	color: pink;
+	position: absolute;
+	left: 89.5%;
+	bottom: 7%
+}
+
+#yourCounter div  div  p.cap1 {
+	display: inline-block;
+	position: absolute;
+	left: 30%;
+	right: 5%;
+	font-size: 2em;
+	color: #BAA1C9;
+
+}
+
+#yourCounter div  div  p.cap2 {
+	display: inline-block;
+	position: absolute;
+	left: 30%;
+	font-size: 2em;
+	color: #BAA1C9;
+
+}
+
+#yourCounter div  div  p.cap3 {
+	display: inline-block;
+	position: absolute;
+	left: 41%;
+	top: 5%;
+	font-size: 2em;
+	color: #BAA1C9;
+
+}
+
+#yourCounter div  div  p.cap4 {
+	display: inline-block;
+	position: absolute;
+	left: 41%;
+	top: 5%;
+	font-size: 2em;
+	color: #BAA1C9;
+
+}
+
+
+.fullKing {
+	background-color: #599532;
+	opacity: .7;
 }

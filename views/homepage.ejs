@@ -47,19 +47,24 @@
             <div id='yourHand'>
                 <img ng-repeat='card in gameView.game.players[gameView.pNum].hand track by $index' ng-src='{{card.image}}' class="cardInHand" index='{{$index}}' draggable item="item" id="handCard{{$index}}">{{item}}</img>
             </div>
+            <p id="winCon">
+                Win Condition:
+                {{gameView.yourPointCap}}
+            </p>
             <div id="yourCounter">
                 <div>
-                    <div id="yourKingSlot1" class="kingSlot"></div>
-                    <div id="yourKingSlot2" class="kingSlot"></div>
+                    <div id="yourKingSlot1" class="kingSlot" ng-class="{fullKing: gameView.yourPointCap <= 14}"><p class="cap1">14</p></div>
+                    <div id="yourKingSlot2" class="kingSlot" ng-class="{fullKing: gameView.yourPointCap <= 10}"><p class="cap2">10</p></div>
                 </div>
                 <div>
                     <div id="yourPointTotal" class="pointTotal">
-                        <div>{{gameView.yourPointTotal}}</div>
+                        <div>{{gameView.yourPointTotal}}
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <div id="yourKingSlot3" class="kingSlot"></div>
-                    <div id="yourKingSlot4" class="kingSlot"></div>
+                    <div id="yourKingSlot3" class="kingSlot" ng-class="{fullKing: gameView.yourPointCap <= 7}"><p class="cap3">7</p></div>
+                    <div id="yourKingSlot4" class="kingSlot" ng-class="{fullKing: gameView.yourPointCap <= 5}"><p class="cap4">5</p></div>
                 </div>
             </div>
         </div>

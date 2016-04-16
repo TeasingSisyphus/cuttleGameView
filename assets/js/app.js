@@ -142,11 +142,14 @@
 	opponent.runes = [tempCard, tempJackCard];
 	newGame.players = [you, opponent];
 
+
 	app.controller('gameViewController', function($scope, $rootScope) {
 		this.game = newGame;
 		this.pNum = 0;
 		this.yourPointTotal = 11;
 		this.opponentPointTotal = 10;
+		this.yourPointCap 	= 21;
+		this.oppPointCap 	= 21;
 
 		this.countPoints = function() {
 			console.log("Inside count points")
@@ -165,8 +168,23 @@
 
 		};
 		$scope.handleDropRunes = function(index, bin) {
+
 			console.log("Dropped in the right place");
 			$scope.gameView.game.players[$scope.gameView.pNum].runes.push($scope.gameView.game.players[$scope.gameView.pNum].hand.splice(index, 1)[0]);
+			switch ($scope.gameView.yourPointCap) {
+				case 21:
+					$scope.gameView.yourPointCap = 14;
+					break;
+				case 14:
+					$scope.gameView.yourPointCap = 10;
+					break;
+				case 10:
+					$scope.gameView.yourPointCap = 7;
+					break;
+				case 7:
+					$scope.gameView.yourPointCap = 5;
+					break;
+			}
 		}
 		this.game.log.push("Player made a move", "Opponent appreciated its gesture", "Player advanced, sexually", "frowns and chocolate"
 			, "repetition", "self-loathing", "failure", "underwhelming existential dissastisfaction");
